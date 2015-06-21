@@ -3,7 +3,6 @@ package aceleradora.controller;
 import aceleradora.dao.AlunoDAO;
 import aceleradora.model.Aluno;
 import aceleradora.model.Dupla;
-import aceleradora.model.Manter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +17,9 @@ public class AlunoController {
 
 
     private AlunoDAO alunodao;
-    private int codigo;
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String mostrartabela(Manter manter,Model model) {
-        manter = new Manter();
-        System.out.println(manter.aluno0);
+    public String mostrartabela(Model model) {
+
         alunodao = new AlunoDAO();
         List<Aluno> alunos = alunodao.getAlunos();
         model.addAttribute("bloqueado", "||||||||||||||||||");
@@ -44,9 +40,7 @@ public class AlunoController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String mostrartabelapreenchida(Manter manter,Model model) {
-
-        System.out.println(manter.aluno0);
+    public String mostrartabelapreenchida(Model model) {
         alunodao = new AlunoDAO();
         List<Aluno> alunos = alunodao.getAlunos();
         model.addAttribute("bloqueado", "||||||||||||||||||");
@@ -80,8 +74,7 @@ public class AlunoController {
             contdupla++;
         }
 
-        //model.addAttribute("coringa", "O coringa é: " + alunos.get(alunos.size() - 1).getNome());
-        model.addAttribute("coringa", "O coringa é: " + alunos.get(codigo).getNome());
+        model.addAttribute("coringa", "O coringa é: " + alunos.get(alunos.size() - 1).getNome());
         model.addAttribute("dupla" + duplas.get(0).getCodigo(), "Dupla 1: " + duplas.get(0).getAluno1().getNome() + ", " + duplas.get(0).getAluno2().getNome());
         model.addAttribute("dupla" + duplas.get(1).getCodigo(), "Dupla 2: " + duplas.get(1).getAluno1().getNome() + ", " + duplas.get(1).getAluno2().getNome());
         model.addAttribute("dupla" + duplas.get(2).getCodigo(), "Dupla 3: " + duplas.get(2).getAluno1().getNome() + ", " + duplas.get(2).getAluno2().getNome());
@@ -91,8 +84,5 @@ public class AlunoController {
         return "tabela";
     }
 
-    public void teste(int codigo){
-        this.codigo = codigo;
-    }
 
 }

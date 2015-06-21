@@ -3,19 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Tabela de Pareamento</title>
-    <script src="js/modernizr.custom.js"></script>
-    <script src="js/tabela.js"> </script>
 
 </head>
 <body>
 
 <div>
-    <form id="formulario" th:action="@{/}" th:object="${Manter}" method="POST">
-//EU ESTAVA AQUI
-        <input type="hidden" id="aluno0" th:field="*{aluno0}"/>
+    <form id="formulario" th:action="@{/}" method="POST">
+
     <table border="1">
         <tr><td>Manter em História:</td>
-            <td><input type="checkbox" name="item" id="cb0" value="0" onclick="manter()"/></td>
+            <td><input type="checkbox" name="item" id="cb0" value="0"/></td>
             <td><input type="checkbox" name="item" id="cb1" value="1"/></td>
             <td><input type="checkbox" name="item" id="cb2" value="2"/></td>
             <td><input type="checkbox" name="item" id="cb3" value="3"/></td>
