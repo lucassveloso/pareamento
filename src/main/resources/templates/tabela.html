@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Tabela de Pareamento</title>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/tabela.js"> </script>
+
+</head>
+<body>
+
+<div>
+    <form id="formulario" th:action="@{/}" th:object="${Manter}" method="POST">
+//EU ESTAVA AQUI
+        <input type="hidden" id="aluno0" th:field="*{aluno0}"/>
+    <table border="1">
+        <tr><td>Manter em História:</td>
+            <td><input type="checkbox" name="item" id="cb0" value="0" onclick="manter()"/></td>
+            <td><input type="checkbox" name="item" id="cb1" value="1"/></td>
+            <td><input type="checkbox" name="item" id="cb2" value="2"/></td>
+            <td><input type="checkbox" name="item" id="cb3" value="3"/></td>
+            <td><input type="checkbox" name="item" id="cb4" value="4"/></td>
+            <td><input type="checkbox" name="item" id="cb5" value="5"/></td>
+            <td><input type="checkbox" name="item" id="cb6" value="6"/></td>
+            <td><input type="checkbox" name="item" id="cb7" value="7"/></td>
+            <td><input type="checkbox" name="item" id="cb8" value="8"/></td>
+            <td><input type="checkbox" name="item" id="cb9" value="9"/></td>
+            <td><input type="checkbox" name="item" id="cb10" value="10"/></td>
+
+        </tr>
+        <tr>
+            <td>    </td>
+            <td th:text="${aluno0.getNome()}"></td>
+            <td th:text="${aluno1.getNome()}"></td>
+            <td th:text="${aluno2.getNome()}"></td>
+            <td th:text="${aluno3.getNome()}"></td>
+            <td th:text="${aluno4.getNome()}"></td>
+            <td th:text="${aluno5.getNome()}"></td>
+            <td th:text="${aluno6.getNome()}"></td>
+            <td th:text="${aluno7.getNome()}"></td>
+            <td th:text="${aluno8.getNome()}"></td>
+            <td th:text="${aluno9.getNome()}"></td>
+            <td th:text="${aluno10.getNome()}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno10.getNome()}"></td>
+            <td th:text="${dupla010}"></td>
+            <td th:text="${dupla110}"></td>
+            <td th:text="${dupla210}"></td>
+            <td th:text="${dupla310}"></td>
+            <td th:text="${dupla410}"></td>
+            <td th:text="${dupla510}"></td>
+            <td th:text="${dupla610}"></td>
+            <td th:text="${dupla710}"></td>
+            <td th:text="${dupla810}"></td>
+            <td th:text="${dupla910}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno9.getNome()}"></td>
+            <td th:text="${dupla09}"></td>
+            <td th:text="${dupla19}"></td>
+            <td th:text="${dupla29}"></td>
+            <td th:text="${dupla39}"></td>
+            <td th:text="${dupla49}"></td>
+            <td th:text="${dupla59}"></td>
+            <td th:text="${dupla69}"></td>
+            <td th:text="${dupla79}"></td>
+            <td th:text="${dupla89}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno8.getNome()}"></td>
+            <td th:text="${dupla08}"></td>
+            <td th:text="${dupla18}"></td>
+            <td th:text="${dupla28}"></td>
+            <td th:text="${dupla38}"></td>
+            <td th:text="${dupla48}"></td>
+            <td th:text="${dupla58}"></td>
+            <td th:text="${dupla68}"></td>
+            <td th:text="${dupla78}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno7.getNome()}"></td>
+            <td th:text="${dupla07}"></td>
+            <td th:text="${dupla17}"></td>
+            <td th:text="${dupla27}"></td>
+            <td th:text="${dupla37}"></td>
+            <td th:text="${dupla47}"></td>
+            <td th:text="${dupla57}"></td>
+            <td th:text="${dupla67}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+
+        </tr>
+        <tr>
+            <td th:text="${aluno6.getNome()}"></td>
+            <td th:text="${dupla06}"></td>
+            <td th:text="${dupla16}"></td>
+            <td th:text="${dupla26}"></td>
+            <td th:text="${dupla36}"></td>
+            <td th:text="${dupla46}"></td>
+            <td th:text="${dupla56}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+
+        </tr>
+        <tr>
+            <td th:text="${aluno5.getNome()}"></td>
+            <td th:text="${dupla05}"></td>
+            <td th:text="${dupla15}"></td>
+            <td th:text="${dupla25}"></td>
+            <td th:text="${dupla35}"></td>
+            <td th:text="${dupla45}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+
+        </tr>
+        <tr>
+            <td th:text="${aluno4.getNome()}"></td>
+            <td th:text="${dupla04}"></td>
+            <td th:text="${dupla14}"></td>
+            <td th:text="${dupla24}"></td>
+            <td th:text="${dupla34}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno3.getNome()}"></td>
+            <td th:text="${dupla03}"></td>
+            <td th:text="${dupla13}"></td>
+            <td th:text="${dupla23}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno2.getNome()}"></td>
+            <td th:text="${dupla02}"></td>
+            <td th:text="${dupla12}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno1.getNome()}"></td>
+            <td th:text="${dupla01}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+        <tr>
+            <td th:text="${aluno0.getNome()}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+            <td th:text="${bloqueado}"></td>
+        </tr>
+    </table>
+        <br/>
+        <input type="submit" value="Sortear" id="botao"/>
+        </form>
+    </div>
+<p th:text="${coringa}"></p>
+<p th:text="${dupla0}"></p>
+<p th:text="${dupla1}"></p>
+<p th:text="${dupla2}"></p>
+<p th:text="${dupla3}"></p>
+<p th:text="${dupla4}"></p>
+</body>
+</html>

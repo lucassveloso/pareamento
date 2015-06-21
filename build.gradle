@@ -1,0 +1,62 @@
+buildscript(){
+    repositories{
+        mavenCentral()
+    }
+
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+jar{
+    baseName="deploy"
+    version="0.1.0"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    compile('org.postgresql:postgresql:9.4-1201-jdbc41')
+
+    compile('org.webjars:bootstrap:3.3.4')
+    compile('org.webjars:jquery:2.1.3')
+
+
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper){
+    gradleVersion='2.4'
+}
+
+task stage(type: Copy, dependsOn: [clean, build]){
+    from jar.archivePath
+    into project.rootDir
+    rename{
+        'pareamento.jar'
+    }
+}
+
+stage.mustRunAfter(clean)
+
+clean << {
+    project.file('pareamento.jar').delete()
+}

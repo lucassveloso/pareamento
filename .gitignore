@@ -1,0 +1,9 @@
+pareamento.iml
+pareamento.ipr
+pareamento.iws
+.gradle/
+.idea/
+gradle/
+build/
+*.class
+*.jar
