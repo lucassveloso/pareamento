@@ -3,15 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Tabela de Pareamento</title>
-
+    <script src="/webjars/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/tabela.js"></script>
 </head>
 <body>
 
 <div>
-    <form id="formulario" th:action="@{/}" method="POST">
 
     <table border="1">
         <tr><td>Manter em História:</td>
+            <div id="checkboxesAlunos">
             <td><input type="checkbox" name="item" id="cb0" value="0"/></td>
             <td><input type="checkbox" name="item" id="cb1" value="1"/></td>
             <td><input type="checkbox" name="item" id="cb2" value="2"/></td>
@@ -23,7 +24,7 @@
             <td><input type="checkbox" name="item" id="cb8" value="8"/></td>
             <td><input type="checkbox" name="item" id="cb9" value="9"/></td>
             <td><input type="checkbox" name="item" id="cb10" value="10"/></td>
-
+            </div>
         </tr>
         <tr>
             <td>    </td>
@@ -198,8 +199,8 @@
         </tr>
     </table>
         <br/>
-        <input type="submit" value="Sortear" id="botao"/>
-        </form>
+        <input type="button" value="Sortear" id="botao" onclick="ListarAlunosManterHistoria()"/>
+
     </div>
 <p th:text="${coringa}"></p>
 <p th:text="${dupla0}"></p>
